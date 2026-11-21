@@ -1,0 +1,32 @@
+name: Build media
+on:
+  push:
+    paths:
+      - "*.gif"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg and numpy
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg python3-numpy
+      - name: Convert the Gemini GIF to a 5 second MP4
+        run: |
+          gif=$(ls *.gif | head -n 1)
+          ffmpeg -y -i "$gif" -an -movflags +faststart -pix_fmt yuv420p -vf "tpad=stop_mode=clone:stop_duration=2,scale=1280:720:flags=lanczos,fps=20" -c:v libx264 -crf 23 -preset slow garage.mp4
+      - name: Synthesize the music loop
+        run: |
+          /usr/bin/python3 make_music.py
+          ffmpeg -y -i music.wav -c:a libmp3lame -b:a 112k music.mp3
+          rm music.wav
+      - name: Commit the media files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -q *.gif make_music.py
+          git add garage.mp4 music.mp3
+          git commit -m "Add video and music"
+          git push
