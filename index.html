@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Addison Garage Reset | Flat-rate garage clean-outs in Addison, Texas</title>
+  <meta name="description" content="Flat-rate garage clean-outs in Addison, Texas. We pull everything out, sort it with you, haul off what you don't want, and put the rest back in order.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">Addison Garage Reset</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="#estimate">Estimate</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO. The video auto-plays, is muted, and loops. Browsers only allow autoplay when the video is muted. -->
+    <section class="bay">
+      <!-- VIDEO: upload your AI-generated clip to the repo as garage.mp4 (same folder as this file) -->
+      <video autoplay muted loop playsinline preload="auto" aria-label="A cluttered garage turning into a clean, organized one">
+        <source src="garage.mp4" type="video/mp4">
+      </video>
+      <div class="bay-door" aria-hidden="true"></div>
+      <!-- MUSIC: off until the visitor clicks, because browsers block sound on page load -->
+      <button type="button" class="music-toggle" id="music-toggle" aria-pressed="false">Play music</button>
+      <audio id="music" src="music.mp3" loop preload="none"></audio>
+      <div class="bay-copy wrap">
+        <h1>Park in your garage again.</h1>
+        <p>Flat-rate garage clean-outs in Addison, Texas. We pull everything out, sort it with you, haul off what you don't want, and put the rest back in order.</p>
+        <div class="bay-actions">
+          <a class="button button-primary" href="how-it-works.html">See how a clean-out works</a>
+          <a class="button button-quiet" href="#estimate">Get an estimate</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <ul class="promises">
+          <li>
+            <h3>One flat price</h3>
+            <p>You know the number before we show up. It doesn't change once we start.</p>
+          </li>
+          <li>
+            <h3>Haul-away included</h3>
+            <p>The first truckload of trash and donations leaves with us the same day.</p>
+          </li>
+          <li>
+            <h3>Done in one visit</h3>
+            <p>Most garages take a morning or an afternoon. You're parking inside by dinner.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- X-FACTOR: live clean-out estimator -->
+    <section class="section estimator-section" id="estimate">
+      <div class="wrap">
+        <h2>Estimate your clean-out</h2>
+        <p>Tell us about your garage. The price and time on site update as you go.</p>
+
+        <div class="estimator">
+          <form id="estimator-form" onsubmit="return false">
+            <fieldset>
+              <legend>How big is the garage?</legend>
+              <div class="size-options">
+                <label><input type="radio" name="bays" value="1"><span>One car</span></label>
+                <label><input type="radio" name="bays" value="2" checked><span>Two car</span></label>
+                <label><input type="radio" name="bays" value="3"><span>Three car</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <label class="field-label" for="fullness">How full is it?</label>
+              <input type="range" id="fullness" min="1" max="3" step="1" value="2" aria-describedby="fullness-text">
+              <div class="range-ends"><span>A few piles</span><span>Can't walk through</span></div>
+              <p id="fullness-text" aria-live="polite"></p>
+            </fieldset>
+
+            <fieldset>
+              <legend>Extra truckloads to haul away</legend>
+              <div class="loads">
+                <button type="button" id="loads-less" aria-label="One fewer extra truckload">-</button>
+                <output id="loads-count" aria-live="polite">None</output>
+                <button type="button" id="loads-more" aria-label="One more extra truckload">+</button>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Add to the job</legend>
+              <label class="check"><input type="checkbox" id="shelving"> <span>Assemble shelving you've bought <small>(+$60)</small></span></label>
+              <label class="check"><input type="checkbox" id="degrease"> <span>Degrease the floor <small>(+$45)</small></span></label>
+            </fieldset>
+          </form>
+
+          <div class="quote" aria-live="polite">
+            <span class="quote-price" id="quote-price">$449</span>
+            <p class="quote-detail" id="quote-detail"></p>
+            <div class="garage" id="garage" data-bays="2" role="img" aria-label="Diagram of how full your garage is"></div>
+            <p class="quote-note">An estimate, not a bill. We confirm the price after a quick look at photos of your garage.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section next-step">
+      <div class="wrap">
+        <h2>Curious what the day looks like?</h2>
+        <a class="button" href="how-it-works.html">See how a clean-out works</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><strong>Addison Garage Reset</strong>, Addison, Texas. Questions or ready to book? Open the chat in the corner of the page.</p>
+      <!-- Required by the lab: X-factor description, under 50 words -->
+      <p><strong>X-factor:</strong> an instant clean-out estimator. Pick your garage size, how full it is, and any extras, and the price, time on site, and bay diagram update live. No form to submit and no waiting on a quote.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Estimator. Edit these numbers to change pricing.
+    const BASE_PRICE = { 1: 299, 2: 449, 3: 599 };
+    const BASE_HOURS = { 1: 2.5, 2: 4, 3: 5.5 };
+    const FULLNESS = {
+      1: { label: "A few piles. You can still walk around.", perBay: -25, hours: 0.75, boxes: 4 },
+      2: { label: "About half full. One car might still fit.", perBay: 0, hours: 1, boxes: 9 },
+      3: { label: "Packed. You can't walk through it.", perBay: 60, hours: 1.35, boxes: 15 }
+    };
+    const EXTRA_LOAD = 75;
+    const SHELVING = 60;
+    const DEGREASE = 45;
+    const MAX_LOADS = 3;
+
+    const form = document.getElementById("estimator-form");
+    const fullness = document.getElementById("fullness");
+    const fullnessText = document.getElementById("fullness-text");
+    const loadsCount = document.getElementById("loads-count");
+    const loadsLess = document.getElementById("loads-less");
+    const loadsMore = document.getElementById("loads-more");
+    const shelving = document.getElementById("shelving");
+    const degrease = document.getElementById("degrease");
+    const price = document.getElementById("quote-price");
+    const detail = document.getElementById("quote-detail");
+    const garage = document.getElementById("garage");
+    let loads = 0;
+
+    function update() {
+      const bays = Number(form.elements.bays.value);
+      const level = FULLNESS[fullness.value];
+
+      let total = BASE_PRICE[bays] + bays * level.perBay + loads * EXTRA_LOAD;
+      if (shelving.checked) total += SHELVING;
+      if (degrease.checked) total += DEGREASE;
+
+      let hours = BASE_HOURS[bays] * level.hours + loads * 0.5;
+      if (shelving.checked) hours += 0.5;
+      if (degrease.checked) hours += 0.5;
+      hours = Math.round(hours * 2) / 2;
+
+      price.textContent = "$" + total;
+      detail.textContent = "About " + hours + " hours on site with a two-person crew. First truckload of haul-away included.";
+      fullnessText.textContent = level.label;
+      loadsCount.textContent = loads === 0 ? "None" : loads === 1 ? "1 extra load" : loads + " extra loads";
+      loadsLess.disabled = loads === 0;
+      loadsMore.disabled = loads === MAX_LOADS;
+
+      garage.dataset.bays = bays;
+      garage.innerHTML = "<i></i>".repeat(level.boxes * bays);
+    }
+
+    loadsLess.addEventListener("click", () => { loads = Math.max(0, loads - 1); update(); });
+    loadsMore.addEventListener("click", () => { loads = Math.min(MAX_LOADS, loads + 1); update(); });
+    form.addEventListener("input", update);
+    update();
+
+    // Background music toggle
+    const music = document.getElementById("music");
+    const musicToggle = document.getElementById("music-toggle");
+    music.volume = 0.45;
+    musicToggle.addEventListener("click", () => {
+      if (music.paused) {
+        music.play().catch(() => { musicToggle.textContent = "Music couldn't load"; });
+      } else {
+        music.pause();
+      }
+    });
+    music.addEventListener("play", () => { musicToggle.textContent = "Pause music"; musicToggle.setAttribute("aria-pressed", "true"); });
+    music.addEventListener("pause", () => { musicToggle.textContent = "Play music"; musicToggle.setAttribute("aria-pressed", "false"); });
+  </script>
+
+  <!-- CHATBOT: Chatling floating chat widget (same snippet on both pages) -->
+  <script> window.chtlConfig = { chatbotId: "5497433317" } </script>
+  <script async data-id="5497433317" id="chtl-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
+
+</body>
+</html>
