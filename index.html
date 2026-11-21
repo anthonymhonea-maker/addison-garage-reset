@@ -9,6 +9,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Creative X-factor callouts (landing page only) */
+    .xfactor-tag {
+      display: inline-block;
+      background: var(--tape);
+      color: var(--slate);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.8rem;
+    }
+    .xfactor { background: var(--door); border-top: 14px solid var(--slate); }
+    .xfactor p { font-size: 1.25rem; }
+    .xfactor .button { margin-top: 1.6rem; }
+  </style>
 </head>
 <body>
 
@@ -68,6 +84,7 @@
     <!-- X-FACTOR: live clean-out estimator -->
     <section class="section estimator-section" id="estimate">
       <div class="wrap">
+        <p class="xfactor-tag">Creative X-factor feature</p>
         <h2>Estimate your clean-out</h2>
         <p>Tell us about your garage. The price and time on site update as you go.</p>
 
@@ -122,13 +139,20 @@
       </div>
     </section>
 
+    <!-- Required by the lab: creative X-factor description, under 50 words, at the bottom of the landing page -->
+    <section class="section xfactor" id="x-factor" aria-labelledby="xfactor-title">
+      <div class="wrap">
+        <h2 id="xfactor-title">Creative X-factor: instant clean-out estimator</h2>
+        <p>This site's extra feature is a live price estimator. Choose your garage size, how full it is, and any add-ons, and the price, time on site, and garage diagram update instantly. No form to send and no waiting on a quote.</p>
+        <a class="button button-primary" href="#estimate">Try the estimator</a>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <p><strong>Addison Garage Reset</strong>, Addison, Texas. Questions or ready to book? Open the chat in the corner of the page.</p>
-      <!-- Required by the lab: X-factor description, under 50 words -->
-      <p><strong>X-factor:</strong> an instant clean-out estimator. Pick your garage size, how full it is, and any extras, and the price, time on site, and bay diagram update live. No form to submit and no waiting on a quote.</p>
     </div>
   </footer>
 
